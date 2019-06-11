@@ -15,6 +15,16 @@ unsigned int gethalfCount(struct Node* node)
             count++;
         }
         //*************************************************************************
+        //****************************for counting full nodes change the condition as*******************
+        if( temp->right!=NULL && temp->left != NULL){
+            count++;
+        }
+        //******************************************************************************************************
+        //*******************************for counting leaf nodes change the conditions as below>>>>>>>>>>>>>>
+        if( temp->right==NULL && temp->left == NULL){
+            count++;
+        }
+        //******************************************************************************************************
         if(temp->left!=NULL){
             q.push(temp->left);}
         if(temp->right!=NULL){
