@@ -1,3 +1,5 @@
+
+// in this at each level we have elements what we want to find is the average of elements present at each level.
 void averageOfLevels(Node* root) 
 { 
    if(root==NULL){
