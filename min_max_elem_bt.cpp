@@ -23,7 +23,8 @@ int findMax(struct node* root)
 int findMin(struct node* root)
 {
     if(root==NULL){
-        return INT_MAX;
+        return INT_MAX;//here notice in base condition we are not returning 0 coz otherwise if 
+        // all the elements are greater than zero then we will get 0 as least element which doesnt even exist.
     }
  int min=INT_MAX;
     // int root_val=root->data;
