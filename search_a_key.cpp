@@ -1,14 +1,16 @@
 //recursive way to search for a given key in a tree
-bool ifNodeExists(struct Node* node, int key) 
+bool search(struct Node* node, int key) 
 { 
     if(node==NULL)
-        return false;
+        return 0;
     if(node->data == key){
-        return true;
+        return 1;
     }
-    bool res1=ifNodeExists(node->left,key);
-    bool res2=ifNodeExists(node->right,key);
-    return res1||res2;
+    bool l=search(node->left,key);
+    if(l==1)
+        return 1;
+    else
+        return search(node->right,key);
 } 
 //iterative way to search for a given key in a tree
 bool ifNodeExists(struct Node* node, int key) 
