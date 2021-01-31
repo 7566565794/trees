@@ -1,3 +1,4 @@
+//*******************************************Recursive Approach***********************************************
 int findMax(struct node* root)
 {
     if(root==NULL){
@@ -39,6 +40,59 @@ int findMin(struct node* root)
     }
     if(min>root_val){
         min=root_val;
+    }
+    return min;
+}
+
+//********************************************************iterative approach**************************************************
+// Returns maximum value in a given Binary Tree
+int findMax(struct node* root)
+{
+    //lets use level order traversal and see if it works
+    queue <struct node*> q;
+    struct node* temp=root;
+    int max=INT_MIN;
+    
+    if(root == NULL){
+        return 0;    
+    }
+    q.push(root);
+    while(!q.empty()){
+        temp=q.front();
+        q.pop();
+        if(max<temp->data){
+            max=temp->data;
+        }
+        if(temp->left!=NULL){
+            q.push(temp->left);
+        }
+        if(temp->right!=NULL){
+            q.push(temp->right);
+        }
+    }
+    return max;
+}
+
+// Returns minimum value in a given Binary Tree
+int findMin(struct node* root)
+{
+// Your code goes here
+    queue <struct node*> q;
+    struct node *temp=NULL;
+    int min=INT_MAX;
+    q.push(root);
+    while(!q.empty()){
+        temp=q.front();
+        q.pop();
+        if(min>temp->data){
+            min=temp->data;
+        }
+        if(temp->left!=NULL){
+            q.push(temp->left);
+        }
+        if(temp->right!=NULL){
+            q.push(temp->right);
+        }
     }
     return min;
 }
